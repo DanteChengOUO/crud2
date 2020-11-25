@@ -1,0 +1,17 @@
+<h1>SMD book 首頁</h1>
+<br>
+<%= link_to '新增書籍' , new_book_path %>
+<br>
+<br>
+<ul class="booklist">
+<% @books.each do |book| %>
+<li>
+<%= link_to '編輯', edit_book_path(book.id)%>
+<%= link_to '刪除', book_path(book.id),
+                   method: :delete,
+                   data: {  confirm: '你確定要刪除嗎?'} %>
+<%= link_to book.name ,book_path(book.id)%>
+</li>
+<% end %>
+
+</ul>
